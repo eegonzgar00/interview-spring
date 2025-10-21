@@ -1,4 +1,4 @@
-package com.example.starter.repository;
+package com.example.starter.domain.port;
 
 import com.example.starter.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,7 +8,7 @@ import java.util.Optional;
  * Repositorio JPA para la entidad User.
  * JpaRepository proporciona métodos CRUD automáticamente.
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepositoryPort extends JpaRepository<User, Long> {
 
     /**
      * Busca un usuario por su nombre de usuario.
