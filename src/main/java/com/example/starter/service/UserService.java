@@ -1,7 +1,7 @@
 package com.example.starter.service;
 
-import com.example.starter.model.User;
-import com.example.starter.repository.UserRepository;
+import com.example.starter.domain.model.User;
+import com.example.starter.domain.port.UserRepositoryPort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.List;
 @Transactional
 public class UserService {
 
-    private final UserRepository repo;
+    private final UserRepositoryPort repo;
 
-    public UserService(UserRepository repo) {
+    public UserService(UserRepositoryPort repo) {
         this.repo = repo;
     }
 
