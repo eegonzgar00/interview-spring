@@ -1,6 +1,6 @@
 package com.example.starter.controller;
 
-import com.example.starter.model.User;
+import com.example.starter.domain.model.User;
 import com.example.starter.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
