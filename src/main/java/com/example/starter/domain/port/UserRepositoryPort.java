@@ -2,18 +2,17 @@ package com.example.starter.domain.port;
 
 import com.example.starter.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 /**
- * Repositorio JPA para la entidad User.
- * JpaRepository proporciona métodos CRUD automáticamente.
+ * Puerto de persistencia para el dominio User.
+ * Define las operaciones necesarias sin depender de una implementación concreta.
  */
-public interface UserRepositoryPort extends JpaRepository<User, Long> {
-
-    /**
-     * Busca un usuario por su nombre de usuario.
-     * @param username Nombre de usuario a buscar.
-     * @return Optional<User> si se encuentra.
-     */
+public interface UserRepositoryPort {
+    User save(User user);
+    Optional<User> findById(Long id);
+    List<User> findAll();
     Optional<User> findByUsername(String username);
 }
