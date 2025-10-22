@@ -1,7 +1,7 @@
-package com.example.starter.controller;
+package com.example.starter.infrastructure.adapter.web;
 
 import com.example.starter.domain.model.User;
-import com.example.starter.service.UserService;
+import com.example.starter.application.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
