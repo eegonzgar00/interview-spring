@@ -1,6 +1,7 @@
 package com.example.starter.infrastructure.adapter.notification;
 
 import com.example.starter.domain.model.User;
+import com.example.starter.domain.port.NotificationPort;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
