@@ -2,6 +2,8 @@ package com.example.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
  * Clase principal de la aplicación Spring Boot.
@@ -12,6 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * - @ComponentScan: busca automáticamente beans, controladores y servicios en el paquete.
  */
 @SpringBootApplication
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
+@EnableCaching
 public class StarterApplication {
     public static void main(String[] args) {
         SpringApplication.run(StarterApplication.class, args);
