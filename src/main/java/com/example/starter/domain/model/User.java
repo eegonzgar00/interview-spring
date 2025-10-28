@@ -3,32 +3,41 @@ package com.example.starter.domain.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import java.time.LocalDateTime;
 
 /**
- * Representa un usuario en la aplicación.
+ * Entidad de dominio User con soporte de auditoría.
  */
 @Entity
 @Table(name = "users")
-@Data              // Genera getters, setters, toString, equals, hashCode
-@NoArgsConstructor // Constructor sin argumentos
-@AllArgsConstructor // Constructor con todos los argumentos
-@Builder           // Permite construir objetos usando el patrón Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
-    /** Identificador único del usuario */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /** Nombre de usuario, obligatorio */
     @NotBlank
     private String username;
 
-    /** Contraseña del usuario, obligatoria */
     @NotBlank
     private String password;
 
-    /** Correo electrónico del usuario, debe ser válido */
     @Email
     private String email;
+
+    /** Fecha de creación del registro */
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    /** Fecha de última modificación */
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }
