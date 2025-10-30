@@ -15,4 +15,5 @@ public interface UserRepositoryPort {
     Optional<User> findById(Long id);
     List<User> findAll();
     Optional<User> findByUsername(String username);
+    void deleteById(Long id);
 }
