@@ -20,22 +20,20 @@ public class UserController {
         this.svc = svc;
     }
 
-    /** GET /api/users - Lista todos los usuarios */
     @GetMapping
     public List<User> list() {
-        return svc.list();
+        return svc.listUsers();
     }
 
-    /** POST /api/users - Crea un nuevo usuario */
     @PostMapping
     public ResponseEntity<User> create(@Validated @RequestBody User u) {
-        User saved = svc.create(u);
+        User saved = svc.saveUser(u);
         return ResponseEntity.ok(saved);
     }
 
-    /** GET /api/users/{id} - Obtiene un usuario por ID */
     @GetMapping("/{id}")
     public User get(@PathVariable Long id) {
-        return svc.get(id);
+        return svc.getUser(id);
     }
 }
+
