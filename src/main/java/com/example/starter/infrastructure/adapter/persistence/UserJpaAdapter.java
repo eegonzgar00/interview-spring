@@ -40,4 +40,9 @@ public class UserJpaAdapter implements UserRepositoryPort {
     public Optional<User> findByUsername(String username) {
         return repo.findByUsername(username);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        repo.deleteById(id);
+    }
 }
