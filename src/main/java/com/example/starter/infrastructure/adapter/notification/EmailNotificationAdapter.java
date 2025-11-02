@@ -16,6 +16,6 @@ public class EmailNotificationAdapter implements NotificationPort {
 
     @Override
     public void sendWelcomeEmail(User user) {
-        log.info("📧 Enviando correo de bienvenida a {}", user.getEmail());
+        log.info("Enviando correo de bienvenida a {}", user.getEmail());
     }
 }
