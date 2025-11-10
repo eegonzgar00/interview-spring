@@ -40,4 +40,9 @@ public class User {
     /** Fecha de última modificación */
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+
 }
