@@ -1,48 +1,51 @@
 package com.example.starter.domain.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.annotation.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-/**
- * Entidad de dominio User con soporte de auditoría.
- */
 @Entity
 @Table(name = "users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@EntityListeners(AuditingEntityListener.class)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
     private String username;
 
-    @NotBlank
+    // No exponer password en DTOs de salida
     private String password;
 
     @Email
     private String email;
 
-    /** Fecha de creación del registro */
+    @Enumerated(EnumType.STRING)
+    private Role role = Role.USER;
+
+    // Auditoría
+    @CreatedBy
+    @Column(updatable = false)
+    private String createdBy;
+
+    @LastModifiedBy
+    private String updatedBy;
+
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
-    /** Fecha de última modificación */
     @LastModifiedDate
     private LocalDateTime updatedAt;
-
-    @Enumerated(EnumType.STRING)
-    private Role role;
-
-
 }
