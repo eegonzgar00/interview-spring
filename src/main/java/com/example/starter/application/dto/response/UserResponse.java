@@ -1,4 +1,4 @@
-package com.example.starter.application.dto;
+package com.example.starter.application.dto.response;
 
 import lombok.Builder;
 import lombok.Data;

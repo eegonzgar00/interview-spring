@@ -1,7 +1,7 @@
 package com.example.starter.application.mapper;
 
 import com.example.starter.application.dto.request.UserRequest;
-import com.example.starter.application.dto.UserResponse;
+import com.example.starter.application.dto.response.UserResponse;
 import com.example.starter.domain.model.User;
 import org.springframework.stereotype.Component;
 
