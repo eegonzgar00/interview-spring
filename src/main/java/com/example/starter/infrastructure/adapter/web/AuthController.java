@@ -1,17 +1,22 @@
 package com.example.starter.infrastructure.adapter.web;
 
-import com.example.starter.application.dto.request.*;
-import com.example.starter.application.dto.response.*;
+import com.example.starter.application.dto.request.LoginRequest;
+import com.example.starter.application.dto.request.UserRequest;
+import com.example.starter.application.dto.response.AuthResponse;
+import com.example.starter.application.dto.response.UserResponse;
 import com.example.starter.application.service.AuthService;
+import com.example.starter.domain.model.User;
 import com.example.starter.infrastructure.repository.SpringDataUserRepository;
 import com.example.starter.infrastructure.security.JwtUtil;
-import com.example.starter.domain.model.User;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.*;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
